@@ -1,1 +1,12 @@
-<p>form-add-product works!</p>
+<form [formGroup]="formProduct" (ngSubmit)="onAddProduct()">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nameProduct" type="text">
+
+    <label>descripcion</label>
+    <input formControlName="description" type="email">
+
+    <label for="password">precio</label>
+    <input formControlName="price" type="number">
+
+    <button type="submit" class="center-button"  [disabled]="!formProduct.valid">Registrarse</button>
+</form>

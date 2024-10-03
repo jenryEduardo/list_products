@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

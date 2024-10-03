@@ -4,7 +4,7 @@ import { NavbarUsersComponent } from './navbar-users/navbar-users.component';
 import { FormUsersComponent } from './form-users/form-users.component';
 import { FormCreateUsersComponent } from './form-create-users/form-create-users.component';
 import { MainComponent } from './main/main.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +16,8 @@ import { MainComponent } from './main/main.component';
     MainComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports:[
     FormCreateUsersComponent,

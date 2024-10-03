@@ -1,1 +1,14 @@
-<p>form-create-users works!</p>
+<app-navbar-users></app-navbar-users>
+
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email">
+
+    <label for="password">Contraseña:</label>
+    <input id="password" formControlName="password" type="password">
+
+    <button type="submit" class="center-button"  [disabled]="!loginForm.valid">Registrarse</button>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 <app-navbar-users></app-navbar-users>
 
 <div class="container">
-  <form>
+  <form [formGroup]=" registerForm" (ngSubmit)="onSubmit()">
     <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" type="text">
+    <input id="nombre" formControlName="username" type="text">
 
     <label for="email">Email:</label>
     <input id="email" formControlName="email" type="email">
@@ -11,6 +11,6 @@
     <label for="password">Contraseña:</label>
     <input id="password" formControlName="password" type="password">
 
-    <button type="submit" class="center-button">Registrarse</button>
+    <button type="submit" class="center-button"  [disabled]="!registerForm.valid">Registrarse</button>
   </form>
 </div>
