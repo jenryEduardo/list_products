@@ -1,13 +1,16 @@
 <app-navbar-users></app-navbar-users>
 
-<form action="">
+<div class="container">
+  <form>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text">
 
-  <input type="text" placeholder="ingrese su nombre">
-  <input type="text" placeholder="ingrese su nombre">
-  <input type="text" placeholder="ingrese su nombre">
-  <input type="text" placeholder="ingrese su nombre">
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email">
 
+    <label for="password">Contraseña:</label>
+    <input id="password" formControlName="password" type="password">
 
-  <button>agregar</button>
-
-</form>
+    <button type="submit" class="center-button">Registrarse</button>
+  </form>
+</div>
