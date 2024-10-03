@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ListProductsComponent {
   products: any[] = [];
   completedProducts: Set<string> = new Set();
+productChunk: any;
 
   constructor(private router: Router) {
     this.loadProducts();
@@ -35,5 +36,19 @@ export class ListProductsComponent {
 
   addProduct() {
     this.router.navigate(['/add-products']);
+  }
+
+  chunkedProducts(arr: any[]) {
+    const chunkSize = 1;
+    const result = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
+    }
+    return result;
+  }
+
+  removeProduct(productName: string) {
+    this.products = this.products.filter(product => product.nameProduct !== productName);
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 }

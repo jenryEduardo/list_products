@@ -20,18 +20,17 @@ export class FormAddProductComponent {
 
   onAddProduct() {
     if (this.formProduct.valid) {
-      // Obtén los productos ya almacenados en el localStorage
+
       const existingProducts = localStorage.getItem('products');
       let productsArray = existingProducts ? JSON.parse(existingProducts) : [];
 
-      // Agrega el nuevo producto al array
       productsArray.push(this.formProduct.value);
 
-      // Guarda el array actualizado en localStorage
       localStorage.setItem('products', JSON.stringify(productsArray));
 
       alert("Producto agregado exitosamente");
-      this.router.navigate(['/main']);  // Redirige a la lista de productos
+      this.router.navigate(['/main']); 
     }
   }
+
 }
