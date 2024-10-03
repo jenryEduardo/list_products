@@ -5,6 +5,7 @@ import { FormUsersComponent } from './form-users/form-users.component';
 import { FormCreateUsersComponent } from './form-create-users/form-create-users.component';
 import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsModule } from '../products/products.module';
 
 
 
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductsModule
   ],
   exports:[
     FormCreateUsersComponent,

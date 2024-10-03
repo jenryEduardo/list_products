@@ -1,1 +1,23 @@
-<p>list-products works!</p>
+<div class="shopping-list-container">
+  <h1>lista de compras</h1>
+
+  <div class="shopping-cart">
+    <img src="path/to/shopping-cart-image.png" alt="Carrito de compras">
+  </div>
+
+  <h2>productos a comprar</h2>
+
+  <div class="product-list-container">
+    <table>
+      <tr *ngFor="let product of products">
+        <td>{{ product.nameProduct }}</td>
+        <td><input type="checkbox" [checked]="isCompleted(product.nameProduct)" (change)="toggleComplete(product.nameProduct)"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="add-button">
+    <button (click)="addProduct()">+</button>
+    <button >🗑️</button>
+  </div>
+</div>
