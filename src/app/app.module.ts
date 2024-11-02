@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { UsersModule } from './users/users.module';
     BrowserModule,
     AppRoutingModule,
     ProductsModule,
-    UsersModule
+    UsersModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration()

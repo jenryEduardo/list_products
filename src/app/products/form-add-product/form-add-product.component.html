@@ -2,12 +2,17 @@
     <label for="nombre">Nombre:</label>
     <input id="nombre" formControlName="nameProduct" type="text">
 
-    <label>descripcion</label>
-    <input formControlName="description" type="email">
+    <label for="descripcion">Descripción:</label>
+    <input id="descripcion" formControlName="description" type="text">
 
-    <label for="password">precio</label>
-    <input formControlName="price" type="number">
+    <label for="precio">Precio:</label>
+    <input id="precio" formControlName="price" type="number">
 
-    <button type="submit" class="center-button"  [disabled]="!formProduct.valid">Registrarse</button>
-    <button></button>
+    <!-- Campo de selección de categoría -->
+    <label for="categoria">Categoría:</label>
+    <select id="categoria" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <button type="submit" class="center-button" [disabled]="!formProduct.valid">Agregar Producto</button>
 </form>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-users',
@@ -10,7 +11,7 @@ export class FormUsersComponent {
 
   registerForm: FormGroup;
 
-  constructor (private formBuilder: FormBuilder){
+  constructor (private formBuilder: FormBuilder,private router:Router){
     this.registerForm=this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -20,10 +21,9 @@ export class FormUsersComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      // Guardar los datos en localStorage
       localStorage.setItem('userData', JSON.stringify(this.registerForm.value));
       console.log('Usuario registrado y guardado en localStorage');
-
+      this.router.navigate(['/main'])
     }
   }
 

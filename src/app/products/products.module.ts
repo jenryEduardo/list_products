@@ -2,21 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { FormAddProductComponent } from './form-add-product/form-add-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoriesComponent } from './categories/categories.component';
+
 
 
 @NgModule({
   declarations: [
     ListProductsComponent,
-    FormAddProductComponent
+    FormAddProductComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     ListProductsComponent,
-    FormAddProductComponent
+    FormAddProductComponent,
+    CategoriesComponent
   ]
 })
 export class ProductsModule { }

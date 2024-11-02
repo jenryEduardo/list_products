@@ -1,17 +1,28 @@
 <div class="shopping-list-container">
-  <h1>lista de compras</h1>
+  <h1>Lista de Compras</h1>
 
-  <div class="shopping-cart">
-    <img src="/assets/icons/icono1.png" alt="Carrito de compras">
+ 
+
+
+
+  <h2 class="presupuesto">Presupuesto</h2><!---->
+  <div class="budget-input">
+    <input type="number" id="budget" [(ngModel)]="budget" (input)="checkBudgetExceeded()" placeholder="Ingresa tu presupuesto">
+  </div> 
+
+  <div class="category-filter">
+    <label for="category" class="categories">Filtrar por Categoría:</label>
+    <select id="category" [(ngModel)]="selectedCategory" (change)="filterByCategory()">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
   </div>
 
-  <h2>productos a comprar</h2>
-
+  <h2 class="subtittle">Productos a Comprar</h2>
   <div class="product-list-container">
-    <div class="product-column" *ngFor="let productChunk of chunkedProducts(products)">
+    <div class="product-column" *ngFor="let productChunk of chunkedProducts(filteredProducts)">
       <div class="product-item" *ngFor="let product of productChunk">
-        <span>{{ product.nameProduct+" " }}</span>
-        <span>{{ product.description +" "}}</span>
+        <span>{{ product.nameProduct }}</span>
+        <span>{{ product.description }}</span>
         <span>{{ product.price | currency }}</span>
         <input type="checkbox" [checked]="isCompleted(product.nameProduct)" (change)="toggleComplete(product.nameProduct)">
         <button (click)="removeProduct(product.nameProduct)">🗑️</button>
@@ -19,7 +30,36 @@
     </div>
   </div>
 
+  <h3>Total: {{ total | currency }}</h3>
+  <div *ngIf="budgetExceeded" class="budget-warning">
+    <p class="alertText">¡Has excedido el presupuesto!</p>
+  </div>
+
   <div class="add-button">
-    <button (click)="addProduct()">+</button>
+    <button (click)="addProduct()">agregar a la lista</button>
+  </div>
+  <div class="list-buttons">
+    <button (click)="saveListToHistory()">Terminar Lista y Guardar en Historial</button>
+  </div>
+
+  <div class="total-history">
+    <h3>Total de compras: {{ totalHistory | currency }}</h3>
+  </div>
+
+  <div class="list-history" *ngIf="listHistory.length > 0">
+    <h2>Historial de Listas</h2>
+    <div *ngFor="let list of listHistory; let i = index">
+      <h3>Lista del {{ list.date | date:'short' }}</h3>
+      <ul>
+        <li *ngFor="let product of list.products">
+          {{ product.nameProduct }} - {{ product.price | currency }}
+        </li>
+      </ul>
+      <p>Total: {{ list.total | currency }}</p>
+      <button (click)="loadListFromHistory(list)">Cargar Lista</button>
+      <button class="delete-button" (click)="removeListFromHistory(i)">Eliminar Lista</button>
+    </div>
   </div>
 </div>
+
+
