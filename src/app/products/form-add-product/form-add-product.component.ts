@@ -10,11 +10,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormAddProductComponent {
   formProduct: FormGroup;
 
+  // Array de categorías para el selector
+  categories: string[] = ['Alimentos', 'Limpieza', 'Bebidas'];
+
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.formProduct = this.formBuilder.group({
       nameProduct: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.required]
+      price: ['', Validators.required],
+      category: ['', Validators.required]  // Nuevo campo para la categoría
     });
   }
 
@@ -32,5 +36,4 @@ export class FormAddProductComponent {
       this.router.navigate(['/main']); 
     }
   }
-
 }

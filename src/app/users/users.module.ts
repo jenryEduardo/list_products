@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarUsersComponent } from './navbar-users/navbar-users.component';
 import { FormUsersComponent } from './form-users/form-users.component';
 import { FormCreateUsersComponent } from './form-create-users/form-create-users.component';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './user-dashboard/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsModule } from '../products/products.module';
 

@@ -28,7 +28,7 @@ export class FormCreateUsersComponent {
       // Verificar si las credenciales son correctas
       if (userData.email === this.loginForm.value.email && userData.password === this.loginForm.value.password) {
         console.log('Inicio de sesión exitoso');
-        this.router.navigate(['/main']);  // Redirigir al usuario
+        this.router.navigate(['/main']); 
       } else {
         console.log('Credenciales incorrectas');
       }
